@@ -16,3 +16,8 @@ class AddingToCartLocators:
     PRODUCT_NAME = (By.CSS_SELECTOR, 'div.product_main h1')
     BASKET_VALUE = (By.CSS_SELECTOR, '.alert-info .alertinner strong')
     COST_OF_GOOD = (By.CSS_SELECTOR, 'p.price_color')
+
+
+class BasePageLocators:
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
