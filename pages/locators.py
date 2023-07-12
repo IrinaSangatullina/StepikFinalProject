@@ -21,3 +21,9 @@ class AddingToCartLocators:
 class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+
+
+class BasketPageLocators:
+    VIEW_CART = (By.CSS_SELECTOR, '#default header > div:nth-child(1) > div > div:nth-child(2) > span > a')
+    PRODUCTS_IN_THE_CART = (By.CSS_SELECTOR, '#content_inner > div:nth-child(1) > div > h2')
+    BASKET_IS_EMPTY = (By.XPATH, '//*[@id="content_inner"]/p')

@@ -5,19 +5,12 @@ from .locators import AddingToCartLocators
 class ProductPage(BasePage):
 
     def add_to_cart_for_test_guest(self):
-        # self.should_be_newYear_url()
         login_link = self.browser.find_element(*AddingToCartLocators.ADD_TO_BASKET)
         login_link.click()
         self.solve_quiz_and_get_code()
         self.product_name_matches_the_one_added()
         self.the_price_of_the_cart_is_the_same_as_the_price_of_the_product()
-        # self.should_not_be_success_message()
-        # self.success_message_should_disappear()
 
-    #
-    # # def should_be_newYear_url(self):
-    # #     assert '?promo=newYear' in self.browser.current_url, 'newYear missing from url'
-    #
     def product_name_matches_the_one_added(self):
         assert self.is_element_present(
             *AddingToCartLocators.ITEM_ADDED_TO_CART), 'Message about adding is not presented'
@@ -31,10 +24,10 @@ class ProductPage(BasePage):
         cost_of_good = self.browser.find_element(*AddingToCartLocators.COST_OF_GOOD).text
         assert cost_of_good == basket_value, 'The price of the cart does not match the price of the product'
 
-    # def should_not_be_success_message(self):
-    #     assert self.is_not_element_present(
-    #         *AddingToCartLocators.ITEM_ADDED_TO_CART), "Success message is presented, but should not be"
-    #
-    # def should_dissapear_of_success_message(self):
-    #     assert self.is_disappeared(
-    #         *AddingToCartLocators.ITEM_ADDED_TO_CART), 'Success message is still present, but should disappear'
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(
+            *AddingToCartLocators.ITEM_ADDED_TO_CART), "Success message is presented, but should not be"
+
+    def success_message_should_disappear(self):
+        assert self.is_disappeared(
+            *AddingToCartLocators.ITEM_ADDED_TO_CART), 'Success message is still present, but should disappear'
