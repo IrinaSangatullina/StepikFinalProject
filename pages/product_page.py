@@ -30,3 +30,9 @@ class ProductPage(BasePage):
     def success_message_should_disappear(self):
         assert self.is_disappeared(
             *AddingToCartLocators.ITEM_ADDED_TO_CART), 'Success message is still present, but should disappear'
+
+    def add_to_cart_for_test_user(self):
+        login_link = self.browser.find_element(*AddingToCartLocators.ADD_TO_BASKET)
+        login_link.click()
+        self.product_name_matches_the_one_added()
+        self.the_price_of_the_cart_is_the_same_as_the_price_of_the_product()
