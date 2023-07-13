@@ -3,7 +3,6 @@ from .locators import AddingToCartLocators
 
 
 class ProductPage(BasePage):
-
     def add_to_cart_for_test_guest(self):
         login_link = self.browser.find_element(*AddingToCartLocators.ADD_TO_BASKET)
         login_link.click()
